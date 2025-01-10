@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-public class Pelicula implements Serializable {
+public class PeliculaComun implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,16 +16,16 @@ public class Pelicula implements Serializable {
 
     private transient LocalDate fechaEstreno;
 
-    public Pelicula() {
+    public PeliculaComun() {
     }
 
-    public Pelicula(Long idPelicula, String titulo, Short ano) {
+    public PeliculaComun(Long idPelicula, String titulo, Short ano) {
         this.idPelicula = idPelicula;
         this.titulo = titulo;
         this.ano = ano;
     }
 
-    public Pelicula(String titulo, Short ano) {
+    public PeliculaComun(String titulo, Short ano) {
         this.titulo = titulo;
         this.ano = ano;
     }

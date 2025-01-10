@@ -3,6 +3,7 @@ package org.example.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Pelicula {
@@ -15,6 +16,9 @@ public class Pelicula {
     private Short ano;
 
     private transient LocalDate fechaEstreno;
+
+    @ManyToOne
+    private Director director;
 
     public Pelicula() {
     }

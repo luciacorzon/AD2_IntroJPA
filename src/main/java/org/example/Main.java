@@ -2,6 +2,7 @@ package org.example;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
+import org.example.entities.EntityManagerUtil;
 import org.example.entities.Pelicula;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -13,7 +14,9 @@ public class Main {
         Pelicula pelicula3 = new Pelicula("El Padrino III", (short) 1990);
 
         var enf = Persistence.createEntityManagerFactory("jpa-hibernate-h2");
-        EntityManager em = enf.createEntityManager();
+
+        //Abrir entitymanager
+        EntityManager em = EntityManagerUtil.getEntityManager();
 
         em.getTransaction().begin();
 
@@ -22,5 +25,8 @@ public class Main {
         em.persist(pelicula3);
 
         em.getTransaction().commit();
+
+        //cerrar
+        EntityManagerUtil.shutdown();
     }
 }
